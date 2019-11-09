@@ -1,16 +1,20 @@
 const Koa = require('koa')
 
-// 创建一个Koa对象表示web app本身
-const app = new Koa()
+const bodyParser = require('koa-bodyparser')
 
-// 对于任何请求，app将调用该异步函数处理请求
+const controller = require('./controller')
+
+const app = new Koa();
+
 app.use(async (ctx, next) => {
-  console.log(ctx)
-  console.log(next)
+  console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
   await next();
-  ctx.response.type = 'text/html'
-  ctx.response.body = '<h1>hello koa2</h1>'
 })
 
-app.listen(3000)
-console.log('app started at port 3000...')
+app.use(bodyParser())
+
+app.use(controller())
+
+app.listen(3000);
+
+console.log("app start in http://localhost:3000");
