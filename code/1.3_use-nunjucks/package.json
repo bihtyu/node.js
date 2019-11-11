@@ -16,6 +16,6 @@
         "url": "https://github.com/bihtyu/node.js.git"
     },
     "dependencies": {
-        "nunjucks": "2.4.2"
+        "nunjucks": "3.2.0"
     }
 }
