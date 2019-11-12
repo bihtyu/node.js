@@ -2,7 +2,7 @@ const nunjucks = require('nunjucks')
 
 function createEnv(path, opts) {
   var
-      autoscape = opts.autoscape === undefined ? true : opts.autoscape,
+      autoescape = opts.autoescape === undefined ? true : opts.autoescape,
       noCache = opts.noCache || false,
       watch = opts.watch || false,
       throwOnUndefined = opts.throwOnUndefined || false,
@@ -11,7 +11,7 @@ function createEnv(path, opts) {
           noCache: noCache,
           watch: watch,
         }), {
-          autoscape: autoscape,
+          autoescape: autoescape,
           throwOnUndefined: throwOnUndefined
         }
       );
@@ -31,3 +31,8 @@ var env = createEnv = createEnv('views', {
     }
   }
 })
+
+console.log(env.render('extend.html', {
+  header: 'hello',
+  body: 'bla bla'
+}))
