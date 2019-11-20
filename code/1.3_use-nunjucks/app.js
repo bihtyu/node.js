@@ -1,4 +1,5 @@
 const nunjucks = require('nunjucks')
+console.log(nunjucks)
 
 function createEnv(path, opts) {
   var
@@ -33,6 +34,6 @@ var env = createEnv = createEnv('views', {
 })
 
 console.log(env.render('extend.html', {
-  header: 'hello',
+  header: 'hello bihtyu',
   body: 'bla bla'
 }))
