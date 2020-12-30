@@ -1,0 +1,11 @@
+.title {
+  text-align: center;
+  color: green;
+}
+
+.container {
+  width: 1000px;
+  height: 500px;
+  margin: 100px auto 0;
+  background: greenyellow;
+}
