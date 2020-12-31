@@ -8,7 +8,7 @@ getExt = () => {
   })
 }
 
-getExt()
+getExt();
 
 EventEmitter.on('data', ext => {
   console.log(ext)
