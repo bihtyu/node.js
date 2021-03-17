@@ -41,6 +41,7 @@ function assignGuestName(socket, guestNumber, nickNames, namesUsed) {
 function joinRoom(socket, room) {
   socket.join(room)
   currentRoom[socket.id] = room
+  socket.emit('joinResult', {room: room})
   socket.broadcast.to(room).emit('message', {
     text: nickNames[socket.id] + ' has joined' + room + '.'
   })
@@ -110,7 +111,7 @@ function handleRoomJoining(socket) {
   })
 }
 
-function handleClientDisConnection(socket) {
+function handleClientDisconnection(socket) {
   socket.on('disconnect', function() {
     var nameIndex = namesUsed.indexOf(nickNames[socket.id])
     delete namesUsed[nameIndex]

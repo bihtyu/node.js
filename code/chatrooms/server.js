@@ -3,11 +3,10 @@ var fs = require('fs')
 var path = require('path')
 var mime = require('mime')
 var cache = {}
-var chatServer = require('./lib/chat_server')
 
 function send404(response) {
   response.writeHead(404, { 'Content-Type': 'text/plain' })
-  response.write('Error 404: resoure not found.')
+  response.write('Error 404: resource not found.')
   response.end()
 }
 
@@ -57,4 +56,5 @@ server.listen(3000, function() {
   console.log('server listening on port 3000')
 })
 
+var chatServer = require('./lib/chat_server')
 chatServer.listen(server)
